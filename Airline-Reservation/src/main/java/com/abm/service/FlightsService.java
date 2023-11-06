@@ -10,7 +10,7 @@ import com.abm.repository.FlightsRepository;
 import com.abm.request.FlightsAddingRequest;
 
 @Service
-public class FlightsService {  //
+public class FlightsService {  
 
 	@Autowired
 	FlightsRepository  flightsRepository;
