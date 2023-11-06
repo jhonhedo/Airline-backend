@@ -28,7 +28,7 @@ public class Users {
     private String email;
 
     @Column(name = "phone")
-    private int phone;
+    private Long phone;
 
     @Column(name = "DOB")
     private LocalDate dob;
@@ -68,11 +68,11 @@ public class Users {
 		this.email = email;
 	}
 
-	public int getPhone() {
+	public Long getPhone() {
 		return phone;
 	}
 
-	public void setPhone(int phone) {
+	public void setPhone(Long phone) {
 		this.phone = phone;
 	}
 

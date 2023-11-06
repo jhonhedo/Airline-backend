@@ -14,7 +14,7 @@ import com.abm.request.UserRegisterRequest;
 import com.abm.service.UsersService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200") 
+@CrossOrigin("*") 
 @RequestMapping("/user-controller")
 public class UsersController {
 	@Autowired
