@@ -43,6 +43,11 @@ public class FlightsService {  //
 	 * flightsRepository.flightUpdata(flightId,request); return null; }
 	 */
 	
+	public String deleteByFlightId(Long flightId) {
+		flightsRepository.deleteById(flightId);
+		return "Flight delect successfully...!!";
+	}
+	
 
 
 }

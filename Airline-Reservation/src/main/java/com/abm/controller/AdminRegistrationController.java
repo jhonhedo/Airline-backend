@@ -1,5 +1,7 @@
 package com.abm.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,9 +21,12 @@ public class AdminRegistrationController {
 
 	@Autowired
 	AdminRegistrationService  adminRegistrationService ;
+	
+	private static final Logger log = LoggerFactory.getLogger(AdminRegistrationController.class);
 
 	@PostMapping("/add-admin")
 	public String adminRegistration(@RequestBody AdminRegistration request) {
+		log.info("adminRegistration :"+request);
 		return adminRegistrationService.adminRegistration(request);
 	}
 	//http://localhost:7777/admin-registration/add-admin
