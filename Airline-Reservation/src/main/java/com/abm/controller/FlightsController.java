@@ -1,14 +1,17 @@
 package com.abm.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.abm.repository.FlightsRepository;
+import com.abm.entity.Flights;
 import com.abm.request.FlightsAddingRequest;
 import com.abm.service.FlightsService;
 
@@ -31,7 +34,15 @@ public class FlightsController{
 		String response=flightsService.addFlights(request);
 		
 		return response;
-		
 	}
+	
+	//http://localhost:7777/flights-controller/flight-search?from=mumbai&to=goa
+
+		@GetMapping("/flight-search") 
+public List<Flights> flightSearching(@RequestParam String from, String to){
+		List<Flights>list=	flightsService.flightSearching(from,to);
+		return list;
+			
+		}
 	
 }
