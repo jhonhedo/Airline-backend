@@ -8,4 +8,5 @@ import com.abm.entity.Airline;
 @Repository
 public interface AirlineRepository  extends JpaRepository<Airline, Long>{
 
+	//Airline getAirlineByAirlineId(Long airlineId);
 }
