@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.abm.entity.Flights;
+import com.abm.repository.AirlineRepository;
 import com.abm.repository.FlightsRepository;
 import com.abm.request.FlightsAddingRequest;
 
@@ -13,7 +14,10 @@ import com.abm.request.FlightsAddingRequest;
 public class FlightsService {  //
 
 	@Autowired
-	FlightsRepository  flightsRepository;
+	private FlightsRepository  flightsRepository;
+	/*
+	 * @Autowired private AirlineRepository airlineRepository;
+	 */
 
 	public String addFlights(FlightsAddingRequest request) {
 		Flights flights=new Flights();
@@ -21,7 +25,7 @@ public class FlightsService {  //
 		flights.setTo(request.getTo());
 		flights.setArrivalTime(request.getArrivalTime());
 		flights.setDepartureTime(request.getDepartureTime());
-		flights.setAirline(request.getAirline());
+		//flights.setAirline(airlineRepository.getAirLineById(request.getAirlineId()));
 		//flights.setAirline(request.getAirline());
 		flightsRepository.save(flights);
 		return "Flight added successfully...!!";
@@ -30,8 +34,7 @@ public class FlightsService {  //
 
 	public List<Flights> flightSearching(String from, String to) {
 		
-		return flightsRepository.findByFromAndTo(from, to);
-		
+		return flightsRepository. findByFromAndTo(from,to);
 	}
 
 

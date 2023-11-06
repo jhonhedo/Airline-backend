@@ -23,7 +23,7 @@ public class FlightsController{
 	@Autowired
 	private FlightsService  flightsService;
 	//Start writing the Methods regarding to flights
-	
+
 	/*
 	 * { "departureTime": "2023-11-05T10:00:00", "arrivalTime":
 	 * "2023-11-05T15:30:00", "from": "City A", "to": "City B" }
@@ -32,17 +32,18 @@ public class FlightsController{
 	@PostMapping("/adding-flights")
 	public String addFlights(@RequestBody FlightsAddingRequest request) {
 		String response=flightsService.addFlights(request);
-		
+
 		return response;
 	}
-	
+
 	//http://localhost:7777/flights-controller/flight-search?from=mumbai&to=goa
 
-		@GetMapping("/flight-search") 
-public List<Flights> flightSearching(@RequestParam String from, String to){
-		List<Flights>list=	flightsService.flightSearching(from,to);
+	@GetMapping("/flight-search") 
+	public List<Flights> flightSearching(@RequestParam String from, @RequestParam String  to){
+		List<Flights>list=	flightsService.flightSearching(from, to);
+
 		return list;
-			
-		}
-	
+
+	}
+
 }

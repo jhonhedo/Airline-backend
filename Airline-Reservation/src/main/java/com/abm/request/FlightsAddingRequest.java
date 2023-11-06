@@ -8,7 +8,8 @@ import com.abm.entity.Airline;
 public class FlightsAddingRequest {
 
 	private Long flightId;
-	private Airline airline;
+	//private Airline airline;
+	private Long airlineId;
 	private LocalDateTime departureTime;
 	private LocalDateTime arrivalTime;
 	private String from;
@@ -19,12 +20,7 @@ public class FlightsAddingRequest {
 	public void setFlightId(Long flightId) {
 		this.flightId = flightId;
 	}
-	public Airline getAirline() {
-		return airline;
-	}
-	public void setAirline(Airline airline) {
-		this.airline = airline;
-	}
+	
 	public LocalDateTime getDepartureTime() {
 		return departureTime;
 	}
@@ -48,6 +44,12 @@ public class FlightsAddingRequest {
 	}
 	public void setTo(String to) {
 		this.to = to;
+	}
+	public Long getAirlineId() {
+		return airlineId;
+	}
+	public void setAirlineId(Long airlineId) {
+		this.airlineId = airlineId;
 	}
 	
 }
