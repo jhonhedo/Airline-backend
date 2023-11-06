@@ -8,7 +8,7 @@ public class UserRegisterRequest {
 	private String userName;
 	private String password;
 	private String email;
-	private int phone;
+	private Long phone;
 	private LocalDate dob;
 	public int getUserId() {
 		return userId;
@@ -34,10 +34,10 @@ public class UserRegisterRequest {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public int getPhone() {
+	public Long getPhone() {
 		return phone;
 	}
-	public void setPhone(int phone) {
+	public void setPhone(Long phone) {
 		this.phone = phone;
 	}
 	public LocalDate getDob() {
