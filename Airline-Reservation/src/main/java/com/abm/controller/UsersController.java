@@ -1,5 +1,7 @@
 package com.abm.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +21,7 @@ import com.abm.service.UsersService;
 public class UsersController {
 	@Autowired
 	UsersService usersService;
+	private static final Logger log = LoggerFactory.getLogger(UsersController.class);
 	
 	@PostMapping("/registration")
 	public ResponseEntity<Object> userRegistration(@RequestBody UserRegisterRequest request ) {
