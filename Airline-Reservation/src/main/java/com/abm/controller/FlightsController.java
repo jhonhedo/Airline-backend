@@ -5,13 +5,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.abm.entity.Flights;
+import com.abm.request.FlightUpdateRequest;
 import com.abm.request.FlightsAddingRequest;
 import com.abm.service.FlightsService;
 
@@ -45,5 +48,16 @@ public class FlightsController{
 		return list;
 
 	}
+	
+	/*  //now i am working on admin login so, flows are in comment i.e updates
+	 * @PutMapping("/update/product/{orderId}") public String
+	 * flightUpdate(@PathVariable String flightId, @RequestBody FlightUpdateRequest
+	 * request ) {
+	 * 
+	 * String result=flightsService.flightUpdate(flightId,request);
+	 * 
+	 * return result; }
+	 */
+	
 
 }

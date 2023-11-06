@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.abm.entity.Flights;
-import com.abm.repository.AirlineRepository;
 import com.abm.repository.FlightsRepository;
+import com.abm.request.FlightUpdateRequest;
 import com.abm.request.FlightsAddingRequest;
 
 @Service
@@ -37,6 +37,12 @@ public class FlightsService {
 		return flightsRepository. findByFromAndTo(from,to);
 	}
 
+	/*
+	 * public String flightUpdate(String flightId, FlightUpdateRequest request) {
+	 * 
+	 * flightsRepository.flightUpdata(flightId,request); return null; }
+	 */
+	
 
 
 }
