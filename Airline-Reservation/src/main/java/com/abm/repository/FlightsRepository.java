@@ -8,11 +8,18 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.abm.entity.Flights;
+import com.abm.request.FlightUpdateRequest;
 
 @Repository
 public interface FlightsRepository extends JpaRepository<Flights, Long>{
 
 	List<Flights> findByFromAndTo(String from, String to);
+
+	/*
+	 * @Query(value="update Flights set flightId=:pname where ORDER_ID=:orderId " ,
+	 * nativeQuery = true) String flightUpdata(@Param("pname") String
+	 * pname, @Param("orderId") String orderId); Str
+	 *///ing flightUpdata(String flightId, FlightUpdateRequest request);
 
 	/*
 	 * @Query("SELECT f FROM Flights f WHERE f.from = :fromLocation AND f.to = :toLocation"
