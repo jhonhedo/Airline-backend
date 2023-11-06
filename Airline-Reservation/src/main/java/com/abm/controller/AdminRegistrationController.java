@@ -31,7 +31,7 @@ public class AdminRegistrationController {
 	}
 	//http://localhost:7777/admin-registration/add-admin
 
-	@GetMapping("/admin-login")  //user Login method
+	@PostMapping("/admin-login")  //user Login method
     public AdminRegistration adminLogin(@RequestParam String adminName, @RequestParam String password) {
 		   return  adminRegistrationService.findByUserNameAndPassword(adminName, password);
      
