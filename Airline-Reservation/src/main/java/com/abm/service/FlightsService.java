@@ -49,6 +49,11 @@ public class FlightsService {
 		return "Flight delect successfully...!!";
 	}
 
+	public Flights fetchDetailsByFlightId(Long flightId) {
+		
+		return flightsRepository.findByFlightId(flightId);
+	}
+
 
 
 }

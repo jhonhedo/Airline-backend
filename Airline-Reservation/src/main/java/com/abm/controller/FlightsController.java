@@ -74,5 +74,14 @@ public class FlightsController {
 		return response;
 	}
 	// http://localhost:7777/flights-controller/delete-flight/{orderId}
+	
+	@GetMapping("/fetch-details/{flightId}")
+	public Flights fetchDetailsByFlightId(@PathVariable Long flightId) {
+		Flights flights= flightsService.fetchDetailsByFlightId(flightId);
+		return flights;
+		
+	}
+	// http://localhost:7777/flights-controller/fetch-details/1001
+	
 
 }
