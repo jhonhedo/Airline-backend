@@ -15,16 +15,6 @@ public interface FlightsRepository extends JpaRepository<Flights, Long>{
 
 	List<Flights> findByFromAndTo(String from, String to);
 
-	/*
-	 * @Query(value="update Flights set flightId=:pname where ORDER_ID=:orderId " ,
-	 * nativeQuery = true) String flightUpdata(@Param("pname") String
-	 * pname, @Param("orderId") String orderId); Str
-	 *///ing flightUpdata(String flightId, FlightUpdateRequest request);
 
-	/*
-	 * @Query("SELECT f FROM Flights f WHERE f.from = :fromLocation AND f.to = :toLocation"
-	 * ) L
-	 *ist<Flights> findFlightsByLocations(@Param("fromLocation") String fromLocation, @Param("toLocation") String toLocation);
-   */
 
 }

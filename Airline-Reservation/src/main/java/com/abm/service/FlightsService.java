@@ -33,21 +33,22 @@ public class FlightsService {
 	}
 
 	public List<Flights> flightSearching(String from, String to) {
-		
+
 		return flightsRepository. findByFromAndTo(from,to);
 	}
 
-	/*
-	 * public String flightUpdate(String flightId, FlightUpdateRequest request) {
-	 * 
-	 * flightsRepository.flightUpdata(flightId,request); return null; }
-	 */
-	
+
+	public String flightUpdate(Flights request) {
+
+		flightsRepository.save(request);
+		return "Flight updated successfully...!!";
+	}
+
 	public String deleteByFlightId(Long flightId) {
 		flightsRepository.deleteById(flightId);
 		return "Flight delect successfully...!!";
 	}
-	
+
 
 
 }
