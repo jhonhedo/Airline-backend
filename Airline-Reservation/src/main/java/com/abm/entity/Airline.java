@@ -14,7 +14,7 @@ public class Airline {
     @Column(name = "Name")
     private String name;
 
-    @OneToMany(mappedBy = "airline")
+    @OneToMany(mappedBy = "airline", cascade = CascadeType.ALL)
     private List<Flights> flights;
 
 	public Long getAirlineId() {

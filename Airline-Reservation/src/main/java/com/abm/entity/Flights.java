@@ -21,6 +21,7 @@ public class Flights {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "Flight_Id")
 	private Long flightId;
+	private double price;  //added newly
 
 	@ManyToOne
 	@JoinColumn(name = "Airline_Id")
@@ -108,5 +109,14 @@ public class Flights {
 	public void setReservations(List<Reservation> reservations) {
 		this.reservations = reservations;
 	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	
 
 }
