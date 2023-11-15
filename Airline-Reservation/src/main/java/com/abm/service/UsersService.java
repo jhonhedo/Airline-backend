@@ -8,9 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.abm.dto.UserRegisterRequest;
 import com.abm.entity.Users;
 import com.abm.repository.UsersRepository;
-import com.abm.request.UserRegisterRequest;
 
 @Service
 public class UsersService {

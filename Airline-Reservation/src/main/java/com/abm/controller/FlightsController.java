@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.abm.dto.FlightUpdateRequest;
+import com.abm.dto.FlightsAddingRequest;
 import com.abm.entity.Flights;
-import com.abm.request.FlightUpdateRequest;
-import com.abm.request.FlightsAddingRequest;
 import com.abm.service.FlightsService;
 
 @RestController

@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.abm.dto.FlightUpdateRequest;
+import com.abm.dto.FlightsAddingRequest;
 import com.abm.entity.Flights;
 import com.abm.repository.FlightsRepository;
-import com.abm.request.FlightUpdateRequest;
-import com.abm.request.FlightsAddingRequest;
 
 @Service
 public class FlightsService {  

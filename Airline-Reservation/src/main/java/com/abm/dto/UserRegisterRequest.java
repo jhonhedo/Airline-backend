@@ -1,4 +1,4 @@
-package com.abm.request;
+package com.abm.dto;
 
 import java.time.LocalDate;
 

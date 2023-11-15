@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
+import com.abm.dto.UserRegisterRequest;
 import com.abm.entity.Users;
-import com.abm.request.UserRegisterRequest;
 import com.abm.service.UsersService;
 
 @RestController
@@ -23,13 +23,13 @@ public class UsersController {
 	UsersService usersService;
 	private static final Logger log = LoggerFactory.getLogger(UsersController.class);
 	
-	@PostMapping("/registration")
+	/*@PostMapping("/registration") //implementing in diffenrt way
 	public ResponseEntity<Object> userRegistration(@RequestBody UserRegisterRequest request ) {
 		
 		ResponseEntity<Object> result=usersService.userRegistration(request);
 		return result;
 		//http://localhost:7777/user-controller/registration
-	}
+	}*/
 	
 	@PostMapping("/login")  //user Login method
     public Users userLogin(@RequestParam String userName, @RequestParam String password) {
