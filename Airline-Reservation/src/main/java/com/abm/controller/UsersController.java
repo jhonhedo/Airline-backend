@@ -30,6 +30,7 @@ public class UsersController {
 		return result;
 		//http://localhost:7777/user-controller/registration
 	}*/
+	@PostMapping("/registration") 
 	public UserRegistrationStatus register(@RequestBody Users users) {
 		try {
 			int id=usersService.register(users);
@@ -46,7 +47,7 @@ public class UsersController {
 			status.setMessageIfAny("User Already registered!");
 			return status;
 		}
-
+		//http://localhost:7777/user-controller/registration
 	}
 
 	@PostMapping("/login")  //user Login method
