@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.abm.entity.Airline;
+import com.abm.entity.Flights;
 import com.abm.exception.AirlineServiceException;
 import com.abm.repository.AirlineRepository;
 
@@ -23,9 +24,11 @@ public class AirlineService {
 		Long count=airlineRepository.findIfAirlineExists(airline.getName());
 		
 		if(count==0) {
-			airline.getFlights().clear();//correct this line
-			Airline a=airlineRepository.save(airline);
-			return a.getAirlineId();
+			for(Flights flights : airline.getFlights()) {
+				flights.setAirline(airline);
+			}
+			Airline savedAirline=airlineRepository.save(airline);
+			return savedAirline.getAirlineId();
 		}
 		else {
 			throw new AirlineServiceException("Airline already exists");
