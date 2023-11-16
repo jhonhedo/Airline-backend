@@ -16,9 +16,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.abm.dto.FlightAddingStatus;
 import com.abm.dto.FlightUpdateRequest;
 import com.abm.dto.FlightsAddingRequest;
 import com.abm.entity.Flights;
+import com.abm.exception.FlightServiceException;
 import com.abm.service.FlightsService;
 
 @RestController
@@ -36,11 +38,32 @@ public class FlightsController {
 	 * "2023-11-05T15:30:00", "from": "City A", "to": "City B" }
 	 */
 	// http://localhost:7777/flights-controller/adding-flights
-	@PostMapping("/adding-flights")
+	/*@PostMapping("/adding-flights")
 	public String addFlights(@RequestBody FlightsAddingRequest request) {
 		String response = flightsService.addFlights(request);
 
 		return response;
+	}*/
+	
+	@PostMapping("/adding-flights")
+	public FlightAddingStatus addFlights(@RequestBody Flights flights) {
+		try {
+			Long id=flightsService.addFlights(flights);
+			
+			FlightAddingStatus status=new FlightAddingStatus();
+			status.setStatus(true);
+			status.setMessageIfAny("Flight added successfully");
+			status.setFlightId(id);
+			
+			return status;
+		}
+		catch (FlightServiceException e) {
+			FlightAddingStatus status=new FlightAddingStatus();
+			status.setStatus(false);
+			status.setMessageIfAny(e.getMessage());
+			return status;
+		}
+		//http://localhost:7777/flights-controller/adding-flights
 	}
 
 	// http://localhost:7777/flights-controller/flight-search?from=mumbai&to=goa

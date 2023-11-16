@@ -24,7 +24,7 @@ public class Flights {
 	private Long flightId;
 	private double price;  //added newly
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST)//important
 	@JoinColumn(name = "Airline_Id")
 	private Airline airline;
 
@@ -39,13 +39,6 @@ public class Flights {
 
 	@Column(name = "to_location")
 	private String to;
-
-	
-	/*
-	 * @Column(name = "flight_class") private String flightClass;
-	 */
-	
-
 	@OneToMany(mappedBy = "flight", cascade = CascadeType.ALL)
 	private List<Reservation> reservations;
 
@@ -103,6 +96,7 @@ public class Flights {
 	 * public void setFlightClass(String flightClass) { this.flightClass =
 	 * flightClass; }
 	 */
+   
 	public List<Reservation> getReservations() {
 		return reservations;
 	}

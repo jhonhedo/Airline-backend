@@ -5,9 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.abm.dto.FlightUpdateRequest;
-import com.abm.dto.FlightsAddingRequest;
 import com.abm.entity.Flights;
+import com.abm.entity.Reservation;
+import com.abm.exception.FlightServiceException;
 import com.abm.repository.FlightsRepository;
 
 @Service
@@ -19,7 +19,7 @@ public class FlightsService {
 	 * @Autowired private AirlineRepository airlineRepository;
 	 */
 
-	public String addFlights(FlightsAddingRequest request) {
+	/*public String addFlights(FlightsAddingRequest request) {
 		Flights flights=new Flights();
 		flights.setFrom(request.getFrom());
 		flights.setTo(request.getTo());
@@ -30,7 +30,7 @@ public class FlightsService {
 		flightsRepository.save(flights);
 		return "Flight added successfully...!!";
 
-	}
+	}*/
 
 	public List<Flights> flightSearching(String from, String to) {
 
@@ -52,6 +52,22 @@ public class FlightsService {
 	public Flights fetchDetailsByFlightId(Long flightId) {
 		
 		return flightsRepository.findByFlightId(flightId);
+	}
+
+	public Long addFlights(Flights flights) {
+		Long count=flightsRepository.findIfFlightExists(flights.getFlightId());
+		
+		if(count==0) {
+			for(Reservation reservation:flights.getReservations()) {
+				reservation.setFlight(flights);
+			}
+			Flights savedFlights=flightsRepository.save(flights);
+			return  savedFlights.getFlightId();
+		}
+		else {
+			 throw new FlightServiceException("Flight already exixts");
+		}
+				
 	}
 
 
