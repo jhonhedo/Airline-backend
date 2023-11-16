@@ -14,8 +14,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import com.abm.entity.Users;
-
-
 @Entity
 @Table(name = "tbl_Reservations")
 public class Reservation {
