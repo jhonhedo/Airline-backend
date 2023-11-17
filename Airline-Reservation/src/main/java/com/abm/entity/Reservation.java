@@ -39,7 +39,8 @@ public class Reservation {
     @Column(name = "Status")
     private String status;
 
-    @OneToMany(mappedBy = "reservation")
+    @ManyToOne
+    @JoinColumn(name = "Passenger_Id")
     private List<Passengers> passengers;
 
     @OneToOne(mappedBy = "reservation")
@@ -61,7 +62,6 @@ public class Reservation {
 	}
 
 	
-
 	public void setUser(Users user) {
 		this.user = user;
 	}
