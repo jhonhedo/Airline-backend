@@ -25,7 +25,9 @@ public class Passengers {
     @Column(name = "Last_Name")
     private String lastName;
 
-    @OneToMany(mappedBy = "passengers", cascade = CascadeType.ALL)
+   // @OneToMany(mappedBy = "passengers", cascade = CascadeType.ALL)
+    @ManyToOne // Change from @OneToMany to @ManyToOne
+    @JoinColumn(name = "Reservation_Id") 
     private Reservation reservation;
 
 	public Long getPassengerId() {

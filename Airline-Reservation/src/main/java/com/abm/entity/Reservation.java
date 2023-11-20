@@ -17,37 +17,41 @@ import com.abm.entity.Users;
 @Entity
 @Table(name = "tbl_Reservations")
 public class Reservation {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Reservation_Id")
-    private Long reservationId;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "Reservation_Id")
+	private Long reservationId;
 
-    @ManyToOne
-    @JoinColumn(name = "User_Id")
-    private Users user;
+	@ManyToOne
+	@JoinColumn(name = "User_Id")
+	private Users user;
 
-    @ManyToOne
-    @JoinColumn(name = "Flight_Id")
-    private Flights flight;
+	@ManyToOne
+	@JoinColumn(name = "Flight_Id")
+	private Flights flight;
 
-    @Column(name = "Reservation_Date")
-    private LocalDate reservationDate;
+	@Column(name = "Reservation_Date")
+	private LocalDate reservationDate;
 
-    @Column(name = "Seat_Number")
-    private String seatNumber;
+	@Column(name = "Seat_Number")
+	private String seatNumber;
 
-    @Column(name = "Status")
-    private String status;
+	@Column(name = "Status")
+	private String status;
 
-    @ManyToOne
-    @JoinColumn(name = "Passenger_Id")
-    private List<Passengers> passengers;
+	/*
+	 * @ManyToOne
+	 * 
+	 * @JoinColumn(name = "Passenger_Id")
+	 */
+	@OneToMany(mappedBy = "reservation")
+	private List<Passengers> passengers;
 
-    @OneToOne(mappedBy = "reservation")
-    private Payments payment;
-    
-    @Column(name = "flight_class")
-    private String flightClass;
+	@OneToOne(mappedBy = "reservation")
+	private Payments payment;
+
+	@Column(name = "flight_class")
+	private String flightClass;
 
 	public Long getReservationId() {
 		return reservationId;
@@ -61,7 +65,7 @@ public class Reservation {
 		return user;
 	}
 
-	
+
 	public void setUser(Users user) {
 		this.user = user;
 	}
@@ -101,6 +105,9 @@ public class Reservation {
 	public List<Passengers> getPassengers() {
 		return passengers;
 	}
+	
+
+	
 
 	public void setPassengers(List<Passengers> passengers) {
 		this.passengers = passengers;
@@ -122,5 +129,5 @@ public class Reservation {
 		this.flightClass = flightClass;
 	}
 
-    
+
 }
